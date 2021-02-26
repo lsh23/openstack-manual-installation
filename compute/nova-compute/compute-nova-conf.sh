@@ -3,7 +3,6 @@ cat > /etc/nova/nova.conf <<EOF
 lock_path = /var/lock/nova
 state_path = /var/lib/nova
 transport_url = rabbit://openstack:$RABBIT_PASS@controller
-my_ip = $MY_IP
 use_neutron = True
 firewall_driver = nova.virt.firewall.NoopFirewallDriver
 
@@ -71,7 +70,7 @@ password = $PLACEMENT_PASS
 [vnc]
 enabled = True
 server_listen = 0.0.0.0
-server_proxyclient_address = $my_ip
+server_proxyclient_address = $MY_IP
 novncproxy_base_url = http://$CONTROLLER_M_IP:6080/vnc_auto.html
 
 EOF
