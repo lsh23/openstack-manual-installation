@@ -1,17 +1,7 @@
 #!/bin/sh
 
-# Using common variables
-# MANAGEMENT_NETWORK_CIDER
-# CONTROLLER_M_IP
-# UBUNTU_ROOT_PASS
-# DB_ROOT_PASS
-# RABBIT_PASS
-# KEYSTONE_DBPASS
-# ADMIN_PASS
-# DEMO_PASS
-# GLANCE_DBPASS
-# NOVA_DBPASS
-# NEUTRON_DBPASS
+# load common variable
+. ../common-config
 
 # install chrony (NTP) ------------------------------------------
 

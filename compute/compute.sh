@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# load common variable
+. ../common-config
+
 # install chrony (NTP) ------------------------------------------
 
 apt install chrony -y
