@@ -5,7 +5,7 @@
 apt install chrony -y
 
 # configure /etc/chrony/chrony.conf
-/bin/sh ./compute-chorny.sh
+/bin/sh ./compute-chrony-conf.sh
 
 service chrony restart
 
@@ -41,9 +41,6 @@ apt install -y neutron-linuxbridge-agent
 echo "net.bridge.bridge-nf-call-iptables = 1" >> /etc/sysctl.conf
 echo "net.bridge.bridge-nf-call-ip6tables = 1" >> /etc/sysctl.conf
 sysctl -p
-
-# configure /etc/nova/nova.conf
-/bin/sh ./nova-compute/compute-nova-conf.sh
 
 service nova-compute restart
 service neutron-linuxbridge-agent restart

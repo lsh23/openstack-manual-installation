@@ -196,7 +196,7 @@ pip install Django==1.11
 apt install openstack-dashboard -y
 
 # configrue /etc/openstack-dashboard/local_settings.py
-/bin/sh ./horizon/controller-horizion-local_settings.sh
+/bin/sh ./horizon/controller-horizon-local_settings.sh
 
 systemctl reload apache2.service
 
@@ -227,10 +227,10 @@ openstack endpoint create --region RegionOne \
 apt install glance -y
 
 # configrue /etc/glance/glance-api.conf 
-/bin/sh ./glance/glance-api-conf.sh
+/bin/sh ./glance/controller-glance-api-conf.sh
 
 # configrue the /etc/glance/glance-registry.conf
-/bin/sh ./glance/glance-registry-conf.sh
+/bin/sh ./glance/controller-glance-registry-conf.sh
 
 /bin/sh -c "glance-manage db_sync" glance
 
@@ -295,7 +295,7 @@ apt install -y nova-api nova-conductor nova-consoleauth \
   nova-novncproxy nova-scheduler nova-placement-api
 
 # configure /etc/nova/nova.conf 
-/bin/sh ./nova/nova-conf.sh
+/bin/sh ./nova/controller-nova-conf.sh
 
 /bin/sh -c "nova-manage api_db sync" nova
 /bin/sh -c "nova-manage cell_v2 map_cell0" nova
@@ -356,13 +356,13 @@ apt install -y neutron-server neutron-plugin-ml2 \
 
 
 # configure the /etc/neutron/neutron.conf 
-/bin/sh ./neutron/neutron-conf.sh
+/bin/sh ./neutron/controller-neutron-conf.sh
 
 # configure /etc/neutron/plugins/ml2/ml2_conf.ini 
-/bin/sh ./neutron/neutron-ml2_conf-ini.sh
+/bin/sh ./neutron/controller-neutron-ml2_conf-ini.sh
 
 # configure /etc/neutron/plugins/ml2/linuxbridge_agent.ini 
-/bin/sh ./neutron/neutron-linuxbridge_agent-ini.sh
+/bin/sh ./neutron/controller-neutron-linuxbridge_agent-ini.sh
 
 # enable networking bridge support
 echo "net.bridge.bridge-nf-call-iptables = 1" >> /etc/sysctl.conf
@@ -370,13 +370,13 @@ echo "net.bridge.bridge-nf-call-ip6tables = 1" >> /etc/sysctl.conf
 sysctl -p
 
 # configure /etc/neutron/l3_agent.ini 
-/bin/sh ./neutron/neutron-l3_agent-ini.sh
+/bin/sh ./neutron/controller-neutron-l3_agent-ini.sh
 
 # configure /etc/neutron/dhcp_agent.ini
-/bin/sh ./neutron/neutron-dhcp_agent-ini.sh
+/bin/sh ./neutron/controller-neutron-dhcp_agent-ini.sh
 
 # configure /etc/neutron/metadata_agent.ini 
-/bin/sh ./neutron/neutron-metadata_agent-ini.sh
+/bin/sh ./neutron/controller-neutron-metadata_agent-ini.sh
 
 /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf \
   --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
