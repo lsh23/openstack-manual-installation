@@ -1,30 +1,5 @@
-# config and export common configurations ------------------------------------------
-
-export PROVIDER_INTERFACE_NAME=eth0
-export MANAGEMENT_NETWORK_CIDER=10.0.0.0/24
-export CONTROLLER_M_IP=10.0.0.11
-export COMPUTE_M_IP=10.0.0.31
-export MY_IP=10.0.0.31
-
-export UBUNTU_ROOT_PASS=1234
-export DB_ROOT_PASS=1234
-
-export RABBIT_PASS=1234
-export ADMIN_PASS=1234
-export DEMO_PASS=1234
-
-export NOVA_PASS=1234
-export NEUTRON_PASS=1234
-export GLANCE_PASS=1234
-
-export METADATA_SECRET=1234
-
-export GLANCE_DBPASS=1234
-export NEUTRON_DBPASS=1234
-export NOVA_DBPASS=1234
-export PLACEMENT_PASS=1234
-export KEYSTONE_DBPASS=1234
-
+# load common variable
+. ./common-config
 
 # make provider network interface unnumbered ------------------------------------------
  
