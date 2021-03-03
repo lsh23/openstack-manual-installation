@@ -1,6 +1,8 @@
 # config and export common configurations ------------------------------------------
 
 export PROVIDER_INTERFACE_NAME=eth0
+export PROVIDER_NETWORK_CIDER=192.168.0.0/24
+export PROVIDER_NETWORK_GATEWAY=192.168.0.1
 
 export MANAGEMENT_INTERFACE_NAME=eth1
 export MANAGEMENT_NETWORK_CIDER=10.0.0.0/24
