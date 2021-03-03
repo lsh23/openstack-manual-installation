@@ -1,18 +1,24 @@
 # load common variable
 . ./common-config
 
-# make provider network interface unnumbered ------------------------------------------
+# configure management network interface  ------------------------------------------
  
 cat > /etc/netplan/01-netcfg.yaml << EOF
 network:
   version: 2
   renderer: networkd
   ethernets:
-    eth0:
+    $MANAGE_INTERFACE_NAME:
+      addresses: $MY_IP
+      gateway4: $MANAGEMENT_NETWORK_GATEWAY
       dhcp4: no
+      nameservers:
+        addresses: [8.8.8.8,8.8.4.4]
 EOF
 
 netplan apply
+
+# configure provider network interface  ------------------------------------------
 
 sudo apt install ifupdown -y
 
