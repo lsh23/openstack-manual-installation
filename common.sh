@@ -27,8 +27,8 @@ cat > /etc/network/interfaces << EOF
 # The provider network interface
 auto $PROVIDER_INTERFACE_NAME
 iface $PROVIDER_INTERFACE_NAME inet manual
-up ip link set dev $IFACE up
-down ip link set dev $IFACE down
+up ip link set dev \$IFACE up
+down ip link set dev \$IFACE down
 
 EOF
 
