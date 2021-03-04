@@ -8,8 +8,8 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    $MANAGE_INTERFACE_NAME:
-      addresses: $MY_IP
+    $MANAGEMENT_INTERFACE_NAME:
+      addresses: [$MY_IP/24]
       gateway4: $MANAGEMENT_NETWORK_GATEWAY
       dhcp4: no
       nameservers:
